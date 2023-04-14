@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+} 
+
+.validate-boletos-container .info-element {
+    margin-bottom: 1rem;
+    font-size:1.2rem;
+}
+
+ul {
+    list-style-type: none;
+    padding:0;
+    margin: 0;
+}
+
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.validate-boletos-container .info-element ul li {
+    margin-left: 1rem;
+    color:white;
+    background-color:	#db0000;
+    border-radius: 25px;
+    padding:0.2rem 0.5rem;
+}
+
+.validate-boletos-container .info-element ul {
+    display: inline-flex;
+}
+
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
+.MuiButtonBase-root {
+    text-transform: none  !important;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}

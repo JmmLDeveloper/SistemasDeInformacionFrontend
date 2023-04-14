@@ -1,0 +1,53 @@
+
+.view-tickets{
+    display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+    height: 100vh;
+    background-color: #0E1321;
+    
+}
+
+.view-tickets-main{
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+	align-content: center;
+  width: auto;
+  height: 6.5vh;
+  background-color: #30374B;
+  color:white;
+}
+
+.container{
+  width: 100%;
+  height: 50vh;
+  display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+justify-content: center;
+align-items: center;
+ 
+}
+
+
+.container-contorno-aviso{
+  width: 85%;
+  height: 15%;
+  direction: column;
+  background-color: #1D2334;
+  border: solid 1.5px;
+  border-color: #395CEA;
+  color:white;
+  border-radius: 5%;
+  
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+  
+  
+}
