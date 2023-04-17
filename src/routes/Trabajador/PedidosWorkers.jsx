@@ -77,7 +77,7 @@ function PedidosWorkers() {
           variant="contained"
           onClick={() => {
             fetch(
-              `http://localhost:3333/ordenes/${state.qrId}/invalidar/comida`,
+              `http://164.90.211.190:8181/ordenes/${state.qrId}/invalidar/comida`,
               {
                 method: "POST",
               }
