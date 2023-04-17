@@ -1,54 +1,60 @@
-
-import React, {
-  useState
-} from "react";
+import React, { useState } from "react";
 import QrReader from "react-web-qr-reader";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { css } from "@emotion/react";
 
-function Scanner({direccion}) {
-
-  const navigate=useNavigate();
+function Scanner({ direccion,scope = 'Comida' }) {
+  const navigate = useNavigate();
 
   const delay = 500;
   const handleScan = (result) => {
-    navigate(direccion,{state:{qrId:result.data}});
+    fetch(`http://localhost:3333/ordenes/${result.data}`).then(
+      async (response) => {
+        if (response.status === 200) {
+          const data = await response.json();
+          if (data.comida_es_valido && scope == 'Comida' ) {
+            navigate(direccion, { state: { orden: data, qrId: result.data } });
+          } 
+
+          if (data.boletos_es_valido && scope == 'Boletos' ) {
+            navigate(direccion, { state: { orden: data, qrId: result.data } });
+          } 
+        }
+      }
+    );
   };
 
   const handleError = (error) => {
-    console.log(error,'hubo un error');
+    console.log(error, "hubo un error");
   };
-
 
   return (
     <div
       css={css`
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         @media (max-width: 800px) {
           h1 {
-            display:none;
+            display: none;
           }
-				}
-
+        }
       `}
     >
-
       <h1> Escaneador de Codigo QR </h1>
 
       <QrReader
         delay={delay}
         style={{
-          width:'min(25rem,100vw)'
+          width: "min(25rem,100vw)",
         }}
         onError={handleError}
         onScan={handleScan}
       />
-    </div >
-  )
+    </div>
+  );
 }
 
-export default Scanner
+export default Scanner;

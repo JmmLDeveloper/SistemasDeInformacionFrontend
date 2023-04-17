@@ -81,7 +81,7 @@ function Navbar() {
         >
           <NavigationLink to="/dashboard/HomeWorker" > Menu Principal </NavigationLink>
           <NavigationLink to="/dashboard/HomeWorker/validate-boletos"> Procesar Boletos </NavigationLink>
-          <NavigationLink to="/dashboard/HomeWorker/Pedidos"> Procesar Pedidos  </NavigationLink>
+          <NavigationLink to="/dashboard/HomeWorker/Pedidos/scanner"> Procesar Pedidos  </NavigationLink>
         </Box>
       </div>
 

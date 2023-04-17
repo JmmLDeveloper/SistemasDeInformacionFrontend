@@ -18,8 +18,7 @@ import BoletosInfo from "./routes/Trabajador/BoletosInfo";
 import PedidosWorkers from "./routes/Trabajador/PedidosWorkers";
 import PedidosScan from "./routes/Trabajador/PedidosScan";
 import PuestosCliente from "./routes/Cliente/PuestosCliente";
-import Ordenes from "./routes/Trabajador/Ordenes/Ordenes";
-import PedidoSeeMore from "./routes/Trabajador/Ordenes/PedidoSeeMore";
+
 
 import ClientLayout from "././routes/Cliente/ClientLayout";
 import WorkerLayout from "././routes/WorkerLayout";
@@ -42,8 +41,7 @@ const router = createBrowserRouter([
 			{ path: "HomeWorker/validate-boletos/info", element: <BoletosInfo />},
 			{ path: "HomeWorker/Pedidos", element:<PedidosWorkers />},
 			{ path: "HomeWorker/Pedidos/scanner",element:<PedidosScan /> },
-			{ path: "HomeWorker/ordenes",element:<Ordenes /> },
-			{ path: "HomeWorker/ordenes/see-more",element:<PedidoSeeMore /> },
+
 		],
 	},
 	

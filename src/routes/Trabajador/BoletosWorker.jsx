@@ -16,7 +16,7 @@ function BoletosWorker(){
             `}
         >
             <Layout nombre="Zona de control" />
-            <Scanner direccion={"/dashboard/HomeWorker/validate-boletos/info"} />
+            <Scanner direccion={"/dashboard/HomeWorker/validate-boletos/info"} scope="Boletos" />
 
         </div>
     )

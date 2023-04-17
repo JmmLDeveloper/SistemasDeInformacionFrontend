@@ -8,8 +8,6 @@ import Layout from "../../components/molecules/Layout";
 import Pedido from "../../components/molecules/Pedido";
 import PedidosList from "../../components/molecules/PedidosList";
 
-import TequeñoImg from "../../assets/food-4.jpeg";
-
 function PedidosWorkers() {
   const [pedidos, setPedidos] = useState([]);
 
@@ -18,26 +16,20 @@ function PedidosWorkers() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!state.qrId) {
-      navigate(-1);
+    if (!state.orden) {
+      navigate("/dashboard/HomeWorker/Pedidos/scanner");
+    } else {
+      const p = state.orden.articulos.map((ar) => ({
+        img: `http://localhost:3333/${ar.articulo.imagen}`,
+        name: ar.articulo.nombre,
+        cantidad: ar.cantidad,
+        descripcion: ar.articulo.descripcion,
+      }));
+      setPedidos(p);
     }
-  }, [state]);
+  }, [state,setPedidos]);
 
-  useEffect(() => {
-    if (state.qrId) {
-      fetch(`http://localhost:3333/ordenes/${state.qrId}`)
-        .then((response) => response.json())
-        .then((data) => {
-          const p = data.articulos.map((ar) => ({
-            img: `http://localhost:3333/${ar.articulo.imagen}` ,
-            name: ar.articulo.nombre,
-            cantidad: ar.cantidad,
-          }));
-          setPedidos(p);
-          console.log(p);
-        });
-    }
-  }, []);
+
 
   return (
     <div
@@ -65,11 +57,17 @@ function PedidosWorkers() {
       <Layout nombre="Pedidos" link="/dashboard/HomeWorker" />
       <div className="content">
         <div>
-          <Typography variant="h4">Pedidos pendientes:</Typography>
+          <Typography variant="h4">Articulos Pedidos</Typography>
+
           <PedidosList>
             {pedidos.map((p, idx) => (
               <li key={idx}>
-                <Pedido imgSource={p.img} name={p.name} cantidad={p.cantidad}/>
+                <Pedido
+                  imgSource={p.img}
+                  name={p.name}
+                  cantidad={p.cantidad}
+                  descripcion={p.descripcion}
+                />
               </li>
             ))}
           </PedidosList>
@@ -77,9 +75,24 @@ function PedidosWorkers() {
         <Button
           startIcon={<Done />}
           variant="contained"
-          onClick={() => navigate("/dashboard/HomeWorker/ordenes")}
+          onClick={() => {
+            fetch(
+              `http://localhost:3333/ordenes/${state.qrId}/invalidar/comida`,
+              {
+                method: "POST",
+              }
+            )
+              .then((res) => {
+                navigate("/dashboard/HomeWorker");
+              })
+              .catch((err) => {
+                navigate("/dashboard/HomeWorker");
+              });
+          }}
         >
-          <Typography variant="buttontext">Escanear Pedido</Typography>
+          <Typography variant="buttontext">
+            Confirmar e invalidar el codigo QR
+          </Typography>
         </Button>
       </div>
     </div>
