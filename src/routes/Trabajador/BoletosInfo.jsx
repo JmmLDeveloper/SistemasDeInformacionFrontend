@@ -172,7 +172,7 @@ function BoletosInfo() {
   }, [state]);
 
   const confirmHandler = () => {
-    fetch(`http://localhost:3333/ordenes/${state.qrId}/invalidar/boletos`, {
+    fetch(`http://164.90.211.190:8181/ordenes/${state.qrId}/invalidar/boletos`, {
       method: "POST",
     })
       .then((res) => {

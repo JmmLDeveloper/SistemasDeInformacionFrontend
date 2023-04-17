@@ -20,7 +20,7 @@ function PedidosWorkers() {
       navigate("/dashboard/HomeWorker/Pedidos/scanner");
     } else {
       const p = state.orden.articulos.map((ar) => ({
-        img: `http://localhost:3333/${ar.articulo.imagen}`,
+        img: `http://164.90.211.190:8181/${ar.articulo.imagen}`,
         name: ar.articulo.nombre,
         cantidad: ar.cantidad,
         descripcion: ar.articulo.descripcion,
