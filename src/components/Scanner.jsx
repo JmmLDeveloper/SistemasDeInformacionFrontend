@@ -8,7 +8,8 @@ function Scanner({ direccion,scope = 'Comida' }) {
 
   const delay = 500;
   const handleScan = (result) => {
-    fetch(`http://164.90.211.190:8181/ordenes/${result.data}`).then(
+    console.log('WTF')
+    fetch(`https://josesisprueba.life/ordenes/${result.data}`).then(
       async (response) => {
         if (response.status === 200) {
           const data = await response.json();

@@ -172,7 +172,7 @@ function BoletosInfo() {
   }, [state]);
 
   const confirmHandler = () => {
-    fetch(`http://164.90.211.190:8181/ordenes/${state.qrId}/invalidar/boletos`, {
+    fetch(`https://josesisprueba.life/ordenes/${state.qrId}/invalidar/boletos`, {
       method: "POST",
     })
       .then((res) => {

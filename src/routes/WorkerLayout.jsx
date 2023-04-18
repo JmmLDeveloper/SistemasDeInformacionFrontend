@@ -32,7 +32,7 @@ const WorkerLayout = () => {
 			<BottomNavbar
 				home="/dashboard/HomeWorker"
 				tickets="/dashboard/HomeWorker/validate-boletos"
-				pedidos="/dashboard/HomeWorker/Pedidos"
+				pedidos="/dashboard/HomeWorker/Pedidos/scanner"
 			/>
 		</div>
 	);

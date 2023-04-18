@@ -20,7 +20,7 @@ function PedidosWorkers() {
       navigate("/dashboard/HomeWorker/Pedidos/scanner");
     } else {
       const p = state.orden.articulos.map((ar) => ({
-        img: `http://164.90.211.190:8181/${ar.articulo.imagen}`,
+        img: `https://josesisprueba.life/${ar.articulo.imagen}`,
         name: ar.articulo.nombre,
         cantidad: ar.cantidad,
         descripcion: ar.articulo.descripcion,
@@ -77,7 +77,7 @@ function PedidosWorkers() {
           variant="contained"
           onClick={() => {
             fetch(
-              `http://164.90.211.190:8181/ordenes/${state.qrId}/invalidar/comida`,
+              `https://josesisprueba.life/ordenes/${state.qrId}/invalidar/comida`,
               {
                 method: "POST",
               }
